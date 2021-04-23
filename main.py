@@ -14,3 +14,7 @@ def main():
 
     edit_secondary_gie(args.secondary, args.model_name)
     edit_ds_transfer(args.ds_config, args.model_name, args.out_path_inference, video )
+
+if __name__ == "__main__":
+    # execute only if run as a script
+    main()
