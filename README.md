@@ -1,4 +1,4 @@
-#Automatization for test gender models in deepstream-app
+# Automatization for test gender models in deepstream-app
 
 First, we have to download the epoch of the model we want to test from the Digits port.
 This model will be in .tar.gz format, then we have to extract the model and we will have
@@ -22,7 +22,24 @@ female; male
 ```
 
 We move the model folder to gender_portal insisde the docker in the configs section od the DS app.
-After that we excecute the python file to edit configs according to our model.
+After that we excecute the python file to edit configs according to our model. Then, we run:
 
+```python
+python3 main.py --model_name --secondary -- video --ds_config --out_path_inference
 
+positional arguments:
+  model_name          model name for testing
+  secondary           path to the secondary inference config file
+  video               path to the video for testing
+  ds_config           path to deepstream config file
+  out_path_inference  path to save the inference results
+```
+
+fter that, we just need to excecute the deepstream app:
+
+```
+../../deepstream-transfer-learning-app -c ds_transfer_learning_app_example.txt
+```
+We can find the inference results in the path we provide in --out_path_inference. After that, we need
+to run an script to obtain the metrics of our infered model.
 
