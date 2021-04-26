@@ -22,7 +22,7 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
     # To change folder output path
     for index, line in enumerate(lines):
         if line.startswith("output-folder-path"):
-            lines[index] = 'output_file=' + output_folder_path
+            lines[index] = 'output-folder-path=' + output_folder_path
             #line="output-folder-path="+output_folder_path
             #part_to_change=line.split('/')[1:]
             #If there is not the directory, we mkdir it.
@@ -40,8 +40,7 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
 
     for index, line in enumerate(lines):
         if line.startswith("output-file"):
-            part_to_change=line.split('/')[-1]
-            lines[index]=line.replace(part_to_change,model_name+"_transfer_"+video_name)+"\n"
+            lines[index] = 'output-file='+ os.path.join(output_folder_path, model_name+'_'+video_name.split('.')[0]+'_transfer.mp4')
     
     #Save the new lines
     my_file = open(ds_transfer_path, "w")
