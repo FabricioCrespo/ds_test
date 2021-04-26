@@ -52,7 +52,7 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
         my_file.write(str1)
     my_file.close()
 
-edit_ds_transfer("./txt_files/prueba.txt","tl","./triton_gender/tl1/prueba1/","test1.mp4")
+
 
 def edit_secondary_gie(file, model_folder):
     with open(file, 'r') as openfile:
