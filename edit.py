@@ -1,7 +1,7 @@
 ## Script to read a txt file and change a specifig line
 import os 
 
-def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
+def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_path):
 
     """ Function to change the lines of ds_transfer conf file.
 
@@ -15,6 +15,7 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
             - ds_transfer txt file with changed lines. 
     """
 
+    vide_name =video_path.split("/")[-1]
     # Open the txt file and read lines.
     with open(ds_transfer_path, 'r') as my_file:
         lines= my_file.readlines()
@@ -33,8 +34,7 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
     for index, line in enumerate(lines):
         #if line[:8]=="uri=file":
         if line.startswith("uri=file"):
-            part_to_change=line.split('/')[-1]
-            lines[index]=line.replace(part_to_change,video_name)+"\n"
+            lines[index] = 'uri=file://' + video_path
 
     # To change output-file
 
