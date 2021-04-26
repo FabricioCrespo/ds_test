@@ -43,13 +43,8 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_path):
             lines[index] = 'output-file='+ os.path.join(output_folder_path, model_name+'_'+video_name.split('.')[0]+'_transfer.mp4')
     
     #Save the new lines
-    my_file = open(ds_transfer_path, "w")
-    for line in lines:
-        str1=""
-        for words in line:
-            str1+=words
-        my_file.write(str1)
-    my_file.close()
+    with open(ds_transfer_path, 'w') as my_file:
+        my_file.writelines(lines)
 
 
 
