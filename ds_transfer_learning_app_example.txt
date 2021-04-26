@@ -43,7 +43,7 @@ nvbuf-memory-type=0
 enable=1
 #Type - 1=CameraV4L2 2=URI 3=MultiURI 4=RTSP
 type=3
-uri=file://../../../../../../samples/streams/557-20a/557-20a-530pm.mp4
+uri=file://../../../../../../samples/streams/557-20a/557-20a-6pm.mp4
 #uri=file://../../../../../samples/streams/557-20a/557-20a-6pm.mp4
 num-sources=1
 #drop-frame-interval=2
@@ -91,7 +91,7 @@ bitrate=2000000
 #H265 Profile - 0=Main 1=Main10
 profile=0
 #output-file=/triton_gender/retrained_layers_portal558_1_epoch_10.mp4
-output-file=/triton_gender/tl_results_id/model_portal_22_abril_squash_image_001_adam/model_portal_22_abril_squash_image_001_adam_557-20a-530pm_transfer.mp4
+output-file=/triton_gender/tl_results_id/model_cam_55x_00/557-20a-6pm/model_cam_55x_00_557-20a-6pm_transfer.mp4
 source-id=0
 
 
@@ -181,7 +181,7 @@ file-loop=0
 
 [img-save]
 enable=1
-output-folder-path=/triton_gender/tl_results_id/model_portal_22_abril_squash_image_001_adam
+output-folder-path=/triton_gender/tl_results_id/model_cam_55x_00/557-20a-6pm
 
 
 
