@@ -43,3 +43,27 @@ fter that, we just need to excecute the deepstream app:
 We can find the inference results in the path we provide in --out_path_inference. After that, we need
 to run an script to obtain the metrics of our infered model.
 
+We need to run the following command:
+```
+python evaluate_model.py --csv_path <file.csv> --json_path <file.json> --model_name <model_name>
+```
+where:
+```
+Input:
+--csv_path -> csv file path with the infered results
+--json_path -> json file path with the ground truth labels from cloud annotations.
+Output:
+The script generates 6 files:
+1. ground_truth_general.csv -> Table with cleaned ground truth results for male and female.
+2. inference_general.csv ->  Table with cleaned inferenced results for male and female.
+3. general_comparison.csv -> Table with inferenced, ground truth and comparison results for male and female.
+4. female_comparison.csv -> Table with inferenced, ground truth and comparison results only for female. 
+5. male_comparison.csv -> Table with inferenced, ground truth and comparison results only for male.
+6. model_name_report.txt -> Report with multiple results:
+                            Global:
+                            Results based on individual images.
+                            Grouped by Person_Id No Weighted:
+                            Results based on Person_Id
+                            Grouped by Person_Id Weighted:
+                            Results based on Person_Id weighted according to occurrence
+```
