@@ -14,8 +14,10 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_path):
         Output: 
             - ds_transfer txt file with changed lines. 
     """
-    output_folder_path = os.path.join(output_folder_path, model_name)
+    
     video_name =video_path.split("/")[-1]
+    output_folder_path = os.path.join(output_folder_path, model_name)
+    output_folder_path=os.path.join(output_folder_path,video_name)
     # Open the txt file and read lines.
     with open(ds_transfer_path, 'r') as my_file:
         lines= my_file.readlines()
