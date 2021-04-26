@@ -22,15 +22,12 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
     # To change folder output path
     for index, line in enumerate(lines):
         if line.startswith("output-folder-path"):
-            part_to_change=line.split('/')[1:]
+            lines[index] = 'output_file=' + output_folder_path
+            #line="output-folder-path="+output_folder_path
+            #part_to_change=line.split('/')[1:]
             #If there is not the directory, we mkdir it.
-            if not os.path.exists(output_folder_path):
-                os.makedirs(output_folder_path)
-            str1="/"
-            for words in part_to_change:
-                str1+=words+"/"
-            str1=str1[:-2]
-            lines[index]=line.replace(str1,output_folder_path)+"\n"
+        if not os.path.exists(output_folder_path):
+            os.makedirs(output_folder_path)
     
     # To change uri video
     for index, line in enumerate(lines):
@@ -54,6 +51,8 @@ def edit_ds_transfer(ds_transfer_path,model_name,output_folder_path,video_name):
             str1+=words
         my_file.write(str1)
     my_file.close()
+
+edit_ds_transfer("./txt_files/prueba.txt","tl","./triton_gender/tl1/prueba1/","test1.mp4")
 
 def edit_secondary_gie(file, model_folder):
     with open(file, 'r') as openfile:
