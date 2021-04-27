@@ -64,6 +64,9 @@ def edit_secondary_gie(file, model_folder):
         if 'labelfile-path=' in data[i]:
             labels = os.path.join(model_folder, 'labels.txt')
             data[i]=f'labelfile-path={labels}\n'
+        if 'mean-file=' in data[i]:
+            mean = os.path.join(model_folder, 'mean.ppm')
+            data[i]=f'mean-file={mean}\n'
         
     with open(file, 'w') as file:
         file.writelines( data )
